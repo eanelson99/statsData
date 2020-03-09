@@ -216,30 +216,34 @@
     <div id="A3">
         <h3>Create a function to find the mean of the quiz grades for a given penguin.</h3>
         <script>
-            var getanypenguin = function(penguin)
-            
-            {
-                var quiz = penguin.quizes.map(getanypenguin)
-                return penguin.quiz.grade
-                
+            var getGrade = function(quiz)
+            { 
+            return quiz.grade
             }
-            var meanquizzes = d3.mean(quiz)
-            report("#A3", meanquizzes)
+            
+            var getPenguinMean = function(penguin)
+            {
+               
+                var QuizGrades = penguin.quizes.map(getGrade)
+                var QuizesMean = d3.mean(QuizGrades)
+                return QuizesMean
+                 }
+            
+            
+            report("#A3", getPenguinMean(classroom[2]))
         </script>
     </div>
 
     <div id="A4">
         <h3>Create an array of the mean quiz score of each penguins. Use one line of "code"</h3>
         <script>
-            var getmeaneachpenguin = function(classroom)
+            var getMeanAllPenguin = function(classroom)
             {
-               return classroom.quiz.grade
+                var ArrayOfMeans = classroom.map(getPenguinMean)
+                return ArrayOfMeans
             }
             
-            var penguin = classroom.quiz.map (getmeaneachpenguin)
-            var penguinmean = d3.mean (penguin)
-            
-            report("#A4", penguinmean)
+            report("#A4", getMeanAllPenguin(classroom))
         </script>
     </div>
 
