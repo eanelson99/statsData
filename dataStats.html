@@ -250,13 +250,12 @@
     <div id="A5">
         <h3>Find the mean of all the quiz scores of the class. (one number)</h3>
         <script>
-            var meanquizscore = function(classroom)
+            var getClassAverage = function(classroom)
             {
-                return classroom.quiz.grade
+                var ClassAverage = d3.mean(getMeanAllPenguin(classroom))
+                return ClassAverage
             }
-            var quizscores = classroom.quiz.grade.map (meanquizscore)
-            var mean = d3.mean(quizscores)
-            report("#A5", mean)
+            report("#A5", getClassAverage(classroom))
         </script>
     </div>
 
