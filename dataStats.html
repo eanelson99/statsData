@@ -233,22 +233,26 @@
         <script>
             var getmeaneachpenguin = function(classroom)
             {
-                var penguins = classroom.quizes.map (getmeaneachpenguin)
-                var  = d3.mean(penguins)
-                return classroom.penguins.quiz.grade
-             
+               return classroom.quiz.grade
             }
             
+            var penguin = classroom.quiz.map (getmeaneachpenguin)
+            var penguinmean = d3.mean (penguin)
             
-            report("#A4", penguins)
+            report("#A4", penguinmean)
         </script>
     </div>
 
     <div id="A5">
         <h3>Find the mean of all the quiz scores of the class. (one number)</h3>
         <script>
-            var answer = "please complete";
-            report("#A5", answer)
+            var meanquizscore = function(classroom)
+            {
+                return classroom.quiz.grade
+            }
+            var quizscores = classroom.quiz.grade.map (meanquizscore)
+            var mean = d3.mean(quizscores)
+            report("#A5", mean)
         </script>
     </div>
 
